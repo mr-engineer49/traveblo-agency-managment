@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <title>{% block title %}{% endblock %} | Web Deno 1.0</title>
+</head>
+<body>
+    <nav class="py-7 px-7 flex justify-between items-center border-b border-gray-200">
+        <a href="/" class="text-xl font-semibold">WebDemo</a>
+
+        <div class="space-x-6">
+            <a href="{% url 'item:new' %}" class="px-6 py-3 text-lg font-semibold bg-green-500 text-white-500 text-white rounded-3xl hover:bg-teal-700">Add New Post</a>
+            <a href="{% url 'item:browse' %}" class="text-lg font-semibold hover:text-gray-500">Discover Packet</a>
+            <a href="{% url 'item:browse' %}" class="text-lg font-semibold hover:text-gray-500">Discover Places</a>
+        
+        {% if request.user.is_authenticated %}
+        <a href="#" class="px-6 py-3 text-lg font-semibold bg-green-500 text-white-500 text-white rounded-xl hover:bg-teal-700">Chat</a>
+        <a href="{% url 'dashboard:dashboard' %}" class="px-6 py-3 text-lg font-semibold bg-green-500 text-white-500 text-white rounded-xl hover:bg-teal-400">Dashboard</a> 
+        {% else %}   
+            <a href="{% url 'main:signup' %}" class="px-6 py-3 text-lg font-semibold bg-green-500 text-white-500 text-white rounded-xl hover:bg-teal-700">Login as User</a>
+            <a href="#" class="px-6 py-3 text-lg font-semibold bg-green-500 text-white-500 text-white rounded-xl hover:bg-teal-400">Login as Agency</a>
+        {% endif%}
+    </div>
+    </nav>
+    <div class="px-6 py-6">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCJvjwgQVJ8HghSP_kABcqOIvCmjRDObfY",
+          authDomain: "traveblo-48b46.firebaseapp.com",
+          projectId: "traveblo-48b46",
+          storageBucket: "traveblo-48b46.appspot.com",
+          messagingSenderId: "590892118577",
+          appId: "1:590892118577:web:4014eb5bd8752680309b10",
+          measurementId: "G-5K6EWYLKBV"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html>

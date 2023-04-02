@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Welcome {% endblock %}
+
+{% block content %}
+<div class="mt=4 px-12 py-12 bg-gray-100 rounded-xl">
+
+    <div class="col-span-3">
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+            <div>
+                <a href="{% url 'item:detail' item.id %}">
+                    <div>
+                        <img src="{{ item.images.url }}" alt="image" class="rounded-t-xl">
+                    </div>
+        
+                    <div class="p-6 bg-white rounded-b-xl">
+                        <h1 class="text-2xl">{{ item.name }}</h1>
+                        <p class="text-gray-500">the Price is: {{ item.price }}€</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

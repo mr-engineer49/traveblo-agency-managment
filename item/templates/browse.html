@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Browse{% endblock%}
+
+
+{%block content %}
+<div class="pb-6 grid-cols-4 gap-3">
+    <div class="col-span-1">
+        <form method="get" action="{% url 'item:browse' %}">
+            <input name="query" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Find places, vacantions offers">
+            <button class="mt-4 py-4 px-6 text-xl bg-green-500 text-black rounded-xl">Search</button>
+        </form>
+
+        </ul>
+
+    </div>
+
+
+    <div class="col-span-3">
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+            <div>
+                <a href="{% url 'item:detail' item.id %}">
+                    <div>
+                        <img src="{{ item.images.url }}" alt="image" class="rounded-t-xl">
+                    </div>
+        
+                    <div class="p-6 bg-white rounded-b-xl">
+                        <h1 class="text-2xl">{{ item.name }}</h1>
+                        <p class="text-gray-500">the Price is: {{ item.price }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
