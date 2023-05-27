@@ -1,21 +1,61 @@
 from django.shortcuts import render, redirect
 
-from item.models import Category, Item 
+from item.models import Item 
 
 from .forms import SignupForm, LoginForm
+
+from django.contrib.sessions.models import Session
 
 
 
 # Create your views here.
 def home(request):
     items = Item.objects.filter(is_active=True)[0:6]
-    categories = Category.objects.all()
-
 
     return render(request,  'index.html', {
-        'categories':categories,
         'items': items,
         })
+
+
+def places(request):
+    places = Item.objects.filter(places=True)[0:6]
+
+    return render(request, 'places.html', {
+        'places': places,
+    })
+
+
+def restaurants(request):
+    restaurants = Item.objects.filter(restaurants=True)[0:6]
+
+    return render(request, 'restaurants.html', {
+        'restaurants': restaurants,
+    })
+
+
+def vacations(request):
+    vacations = Item.objects.filter(vacations=True)[0:6]
+
+    return render(request, 'vacations.html', {
+        'vacations': vacations,
+    })
+
+
+def activities(request):
+    activities = Item.objects.filter(activities=True)[0:6]
+
+    return render(request, 'activities.html', {
+        'activities': activities,
+    })
+
+
+def trips(request):
+    trips = Item.objects.filter(trip=True)[0:6]
+
+    return render(request, 'trip.html', {
+        'trips': trips,
+    })
+
 
 def signup(request):
     if request.method == 'POST':
@@ -38,4 +78,11 @@ def login(request):
 
     return render(request, 'login.html', {
         'form': form
+    })
+
+
+def logout(request):
+    logout = Session.objects.all().delete()
+    return render(request, 'index.html', {
+        'logout': logout,
     })

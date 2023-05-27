@@ -4,7 +4,7 @@
 
 
 
-{% block content %}
+{% block header %}
 <div class="w-1/2 my-6 mx-auto bg-gray-100 rounded-xl">
     <h1 class="mb-6 text-3xl">Sign up</h1>
 
@@ -43,6 +43,11 @@
         {% endif %}
 
         <button class="py-4 px-8 text-lg bg-green-500 hover:bg-green-200 rounded-xl">Submit</button>
+    
+        <br>
+        <h1>or </h1>
+        <p>If you have an account <a href="{% url 'main:login' %}" class="py-1 px-4 text-lg bg-green-500 hover:bg-green-200 rounded-xl">Login Here !!</a></p>
+    
     </form>
 </div>
 {% endblock %}

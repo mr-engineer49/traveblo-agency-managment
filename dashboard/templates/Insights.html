@@ -1,0 +1,228 @@
+{% extends 'dashboard.html' %}
+
+
+{% block title %}Insights{% endblock %}
+
+
+
+{% block body %}
+<div>
+    <h1>Insights PAGE</h1>
+</div>
+<main class="">
+    <div class="grid mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">
+
+        <div class="grid grid-cols-12 gap-6">
+            <div class="grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9">
+                <div class="col-span-12 mt-8">
+                    <div class="flex items-center h-10 intro-y">
+                        <h2 class="mr-5 text-lg font-medium truncate">Insights</h2>
+                    </div>
+                    <div class="grid grid-cols-12 gap-6 mt-5">
+                        <a class="transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y bg-white"
+                            href="#">
+                            <div class="p-5">
+                                <div class="flex justify-between">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-400"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                    </svg>
+                                    <div
+                                        class="bg-green-500 rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-sm">
+                                        <span class="flex items-center">30%</span>
+                                    </div>
+                                </div>
+                                <div class="ml-2 w-full flex-1">
+                                    <div>
+                                        <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
+
+                                        <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y bg-white"
+                            href="#">
+                            <div class="p-5">
+                                <div class="flex justify-between">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-yellow-400"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                    <div
+                                        class="bg-red-500 rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-sm">
+                                        <span class="flex items-center">30%</span>
+                                    </div>
+                                </div>
+                                <div class="ml-2 w-full flex-1">
+                                    <div>
+                                        <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
+
+                                        <div class="mt-1 text-base text-gray-600">Item Impressions</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y bg-white"
+                            href="#">
+                            <div class="p-5">
+                                <div class="flex justify-between">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-green-400"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                                    </svg>
+                                    <div
+                                        class="bg-blue-500 rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-sm">
+                                        <span class="flex items-center">30%</span>
+                                    </div>
+                                </div>
+                                <div class="ml-2 w-full flex-1">
+                                    <div>
+                                        <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
+
+                                        <div class="mt-1 text-base text-gray-600">Items Insights</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-span-12 mt-5">
+                    <div class="grid gap-2 grid-cols-1 lg:grid-cols-2">
+                        <div class="bg-white shadow-lg p-4" id="chartline"></div>
+                        <div class="bg-white shadow-lg" id="chartpie"></div>
+                    </div>
+                </div>
+               
+                <div class="col-span-12 mt-5">
+                    <div class="grid gap-2 grid-cols-1 lg:grid-cols-1">
+                        <div class="bg-white p-4 shadow-lg rounded-lg">
+                            <h1 class="font-bold text-base">Table</h1>
+                            <div class="mt-4">
+                                <div class="flex flex-col">
+                                    <div class="-my-2 overflow-x-auto">
+                                        <div class="py-2 align-middle inline-block min-w-full">
+                                            <div
+                                                class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
+                                                <table description="#" class="min-w-full divide-y divide-gray-200">
+                                                    <thead>
+                                                        <tr>
+                                                            <th
+                                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                                <div class="flex cursor-pointer">
+                                                                    <span class="mr-2">Item Name</span>
+                                                                </div>
+                                                            </th>
+                                                            <th
+                                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                                <div class="flex cursor-pointer">
+                                                                    <span class="mr-2">Impressions</span>
+                                                                </div>
+                                                            </th>
+                                                            <th
+                                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                                <div class="flex cursor-pointer">
+                                                                    <span class="mr-2">Buys</span>
+                                                                </div>
+                                                            </th>
+                                                            <th
+                                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                                <div class="flex cursor-pointer">
+                                                                    <span class="mr-2">Status</span>
+                                                                </div>
+                                                            </th>
+                                                            <th
+                                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                                <div class="flex cursor-pointer">
+                                                                    <span class="mr-2">Set Status</span>
+                                                                </div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        {% for item in items %}
+                                                        <tr>
+                                                            
+                                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                <p class="text-green-500">{{ item.name }}</p>
+                                                                
+                                                                <p class="text-xs text-red-600">{{ item.destinations }}</p>
+                                                            </td>
+                                                            
+                                                            <td
+                                                                class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                <p>77</p>
+                                                            </td>
+                                                            <td
+                                                                class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                <p>77</p>
+                                                            </td>
+                                                            <td
+                                                                class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                <div class="flex text-green-500">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        class="w-5 h-5 mr-1" fill="none"
+                                                                        viewBox="0 0 24 24"
+                                                                        stroke="currentColor">
+                                                                        <path stroke-linecap="round"
+                                                                            stroke-linejoin="round"
+                                                                            stroke-width="2"
+                                                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                                    </svg> 
+                                                                    <p id="selected-option" class="bg-gray-100 rounded-2xl px-6 py-4 my-4"></p>
+                                                                    <script>
+                                                                        function updateSelectColor() {
+                                                                            var select = document.getElementById("action-select");
+                                                                            var selectedOption = select.options[select.selectedIndex];
+                                                                            var bgColorClass = selectedOption.getAttribute("class").split(" ")[0];
+                                                                            select.setAttribute("class", "bg-gray-100 rounded-2xl px-6 py-4 " + bgColorClass);
+                                                                            var selectedOptionText = selectedOption.text;
+                                                                            var selectedOptionElement = document.getElementById("selected-option");
+                                                                            selectedOptionElement.textContent = selectedOptionText;
+                                                                            selectedOptionElement.setAttribute("class", "bg-gray-100 rounded-2xl px-6 py-4 my-4 " + bgColorClass);
+                                                                        }
+                                                                        </script>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                <label>Do a Action</label>
+                                                            <form>
+                                                                <select id="action-select" class="{{ action.get_actions_color }} rounded-2xl px-6 py-4" onchange="updateSelectColor()">                                                                    
+                                                                    <option>---</option>
+                                                                    {% for action in actions %}                                                                    
+                                                                    <option class="{{ action.get_actions_color }} text-white rounded-2xl text-center" value="{{ action }}">{{ action }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                                <script>
+                                                                    function updateSelectColor() {
+                                                                        var select = document.getElementById("action-select");
+                                                                        var selectedOption = select.options[select.selectedIndex];
+                                                                        var bgColorClass = selectedOption.getAttribute("class").split(" ")[0];
+                                                                        select.setAttribute("class", "bg-gray-100 rounded-2xl text-white px-6 py-0 " + bgColorClass);
+                                                                    }
+                                                                    </script>
+                                                            </form>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

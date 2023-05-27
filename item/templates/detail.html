@@ -4,33 +4,55 @@
 
 
 
-{% block content %}
+{% block header %}
 <div class="grid grid-cols-5 gap-6">
-    <div class="col-span-3">
-        <img src="{{ item.images.url }}" class="rounded-xl">
+    <div class="col-span-1">
+        <img alt="background-image" src="{{ item.images.url }}" class="rounded-xl">
     </div>
 
-<div class="col-span-2 p-6 bg-gray-100 rounded-xl">
-    <h1 class="mb-6 text-3xl">{{ item.name }}</h1>
-    <p class="text-gray-500"><strong>Price: </strong>{{ item.price }}</p>
-    <p>{{ item.published_at }}</p>
-
+<div class="col-span-4 p-2 m-0 bg-gray-1 rounded-xl">
+    <h1 class="mb-6 text-xl text-center">{{ item.name }}</h1>
+    <address class="inline-block">Destination: <img class="w-6 h-6 inline-block" src="https://img.icons8.com/3d-fluency/94/null/map-pin.png" alt="address"/>{{ item.destinations }}</address>
+<br>
     {% if item.description %}
-    <p class="text-gray-700">
-        <strong class="text-gray-500">Description:</strong>
+    <p class="text-gray-700 text-center w-50">
+        <strong class="text-gray-500 text-center">Description:
+            <hr class="bg-green-500 h-0.5 w-100 rounded-xl">
+        </strong>
+        <br>
         {{ item.description }}
     </p>
     {% endif %}
+    <br>
+
+    {% if item.bathroom == true %}
+    <div class="inline-block">
+        <h1 class="inline-block">Included: </h1>
+        <p class="inline-block">
+            <img alt="bathroom" class="w-8 h-8 inline-block" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEX0lEQVR4nO2YXW/bVBjHg5CADwAS08QF4gLBN2B8BF4kSCoEglVaxg3EBokhYq+oXLShwCZRiZuNcbF1A2kCTWwJtMnKymhpSLqkUdo5iRMve2tHu1WsmR3Xx/GDThKnaRc7zonVJFL/0qPYsv2c/8/neY6P4nDsale9JWo087jXN0czw5EwMxx5wPiiYBr4nuFI2OuLegYHFx7rqHl26O+9zHB0vqlpX+Pw+qJxnKNjb143P/JdApKpNZA3VNguTQNYXClBSEDlyN5VYCG9BkePJaszEo11ZCbKZVM1L0kIGqmkAczfUcvGL15DsFTQatfwM0OjCb2sPuwAQOQfPDh+842ESgBzSxXzk9cQrIib5rHSd0tw5s/VailFZjsBUMCDNyqbDRUgfKti/o88gnvSpnl8tLhaKanxtKyX0fqOA+iNuF0S0mDmZsX8VB7BfVnbUlKJfyvX9NDzdAXAgw0NLl+vGMO/hY1N86oGEFvear6rANaKGlzKV0xN31DLM1HfD5FqP3QlAG5Q3KghAcHsLRVktXE/EAGM8/BMUFB+DgrKulESHPh6MKecmxTk51sBwEsjXiJxjshtFZTSpvkiglo/EAFg86Gccs8swUORU9bwc1YB9OeuLKug1pnHJYRLqdl4pgD4zbdkvhbK2VYA8McKrzBIVWHs13E4OPAl9LMjMDT2G0xk5bYA1gkB7lsFWFhRy9sFrNPnx8FFs1ti6NTv5ABk5ithFaBe7oGRsumxGQHGpnPl4/3sSG8ArIpa7a3rObafdy3Act1KFKqLngC4uV6CiwY5XL0AYJbD1UsA9NfHm/aAfo7v7TqAk5d5ywD43o4CxDk+EU9lwc6Icdn4zgGk+fftBpjncgdqA7gD4szBgARth1+cbgRwFuDRGJcN2wgwg3PWBrDFfDWMZyG9N57iM22XTopPzV3N79mSfCcAsGKZzFMxLnuuDfO/zKVSTz6UGE+9HebdfvEvM4AaCMfvi3PZE7EUn45zvGRomuOlyj3Z769c5V8yTUq+E9VD+c9BICfNFLfvSPVwUqxkOVFIQMl2AIICSpAAuChmyRCAZm9bThTMoa/aBPCRADhpdtEIwEUxC5YTTWaKz4UERSYyn1OKE/nisyQALpqdNi4hxlJP1RQSlM8JAQ6TmMdyUewFwxmgmfOOVgQAjwQF9EOLpXMCP+cglJNmT5nMwEmipCFBoYKCUrDwt4rH0aZcNDNqsgp9S5z40yn0+pGwDGeSClzIKDAhoPLv6aQC38zK8NkUes1hg5wU84VxCbGDxIndAekd832P9LYtAB6WNlmFKOLEB/zSIdOvbkD6xA6APsr7nvF3gHmXOLHbLx5tsvM8YgeAk/a+agTQ52FfIQcIiD+Zz4D4ox0Ab3qYl42b+PA+cgC/OGW+eRMv2QHQRzEvGgG89dHAC+QAATHTZOeZtgPgjY/ZPYYl9MGhp8kB/GKhCUDBDoD+/sEnjADwNTvG2NWuHMb6H4jq0b0urOTSAAAAAElFTkSuQmCC">
+            {{ item.bathrom }} x 2</p>
+    </div>
+    {% endif %}
+<br>
+    <p class="text-gray-500"><strong>Price: </strong>${{ item.price }}</p>
+    <br>
+    <p>Published on : {{ item.published_at }}</p>
 
     {% if request.user == item.published_by %}
     <div class="mt-10 p-5 bg-white rounded-b-xl">
         <p>This is your item</p>
 
-        <a href="{% url 'item:edit' item.id %}" class="inline-block mt-4 px-4 py-6 text-3xl bg-gray-500 text-white">Edit</a>
-        <a href="{% url 'item:delete' item.id %}" class="inline-block mt-4 px-4 py-6 text-3xl bg-red-500 text-white">Delete</a>
+        <a href="{% url 'item:edit' item.id %}" class="inline-block mt-4 px-4 py-1 text-xl bg-gray-500 text-white rounded-2xl">
+            <img alt="edit" class="w-6 h-6 inline-block" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABpElEQVR4nO2XwUoCURSGr5spfAM3LWolWJtZqLhpFwTRE+S2VaD3Du2ihU8QRFgiuY1IzY2EqSOO26IWQYSSOhNttOYFOnFNbTCzTXDvwPng7L//P3OGGUIQBEH+k248HrIY61iM3b/GYovETbwwplqU9i3GYDidtqYtETeQLRnhylnuytK0kfxgTErb0m8iWzLCuYph5ysNKJ/ndFPTPpwhpN5E1iE/Gh5ichMWpXdENuCIqL1M4DZfrvecAfhcXxQazhAmpc9ENnlIkj4kCfQz/uasECZjNn87ERnlYTi9U39rWgh+2NLLw3B+bsJ4v6zW3SEPEyH4YcsmH4IksWfJw/hxCtwUdD1M3NQ8fI/NwxJZQHlRYPOiwOZFgc2LApsXBTYvCsAPM0EANi8IwOYFAUWvD9KeR1f+BnKgOr8FumJC2tN1nTwHakoaanPwRwg55TmgK61BgN9DyCt/uLcS1E8WvuSnh5BXnpPQ1FRkfQOqqakhHqSW5+xsR56Ca5swDqErzcFN8MMuen1EdqLR1TceIrGrHh/sL8vdNoIgxNV8AvWmTRYbzpX3AAAAAElFTkSuQmCC">
+            Edit</a>
+        <a href="{% url 'item:delete' item.id %}" class="inline-block mt-4 px-4 py-1 text-xl bg-red-500 text-white rounded-xl">
+            <img alt="delete" class="w-6 h-6 inline-block" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVR4nO3av6vNYRwH8IcjumUSma5iZuAWO1dRBovuorvZ3AhlMriT2WKyWKSY7l/A4EeJ8U5nQiiDMljw0rdzT1nESd/n83G/z6ue9dT73en0vL/fU0rTNE3TNE3TNDXgCK7g+m/ORcyXTRz+mz97j51ls8Elf+9oyQpbcQGP8HKG82aGAtZn+NwXuIeTtQq4L6cfWOk7/KLcvmJXnwXckN9inwWsyO9wnwXsxWd5vcKotwI6OIEP8nmNA6UGbMcDeXS3yC1Vwk/hpjxOldpM7u1ZLEQUsCSPfREFHJfHXEQBB+XwpXr4X+4EGYxLBIzwPTo9nocU0MGn6PRYK1FMdnu0u5EFPI5Oj1uRBTyMTo+rkQXciU6P5cgCVge5A5I9IFmILGBpkDsg2R6Yiyzg0CB3QKI9MI4uYBS8B+J2QJI9sJahgPVB7oApPBnkDpjaeEs8vB2QZA8sZyhgNbCA0xkKOB9YwP4MBcwH3QXG1V+HJXswcrlkYfIt+Fgx/FNsKwn/Bve2Qvhn2F0ywh7c7lZaD8Hf4Vr3ar5khx04hrM494/nzMbszvGD1zRN0zRN05T/30/1RI0UP+C7cgAAAABJRU5ErkJggg==">
+            Delete</a>
     </div>
 {% else %}
-<a href="#" class="inline-block mt-6 px-8 text-3xl bg-green-500">Get the Offer</a>
+<a href="{% url 'conversation:new_conversation' item.id %}" class="inline-block mt-8 px-1 w-35 h-7 text-green-600 text-xl bg-gray-200 rounded-xl">
+    <img alt="sendmessage" class="w-6 h-6 inline-block" src="data:image/png;base64,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">
+    Get the Offer</a>
 {% endif %}
 </div>
 </div>
@@ -39,21 +61,26 @@
     <h2 class="mb-12 text-2xl text-center">Releated Items</h2>
 
 
-    <div class="grid grid-cols-3 gap-3">
+    <div class="grid grid-cols-4 gap-6 md:grid-cols-6 lg:grid-cols-5 md:gap-6 lg:grid-rows-6">
         {% for item in releated_items %}
-        <div>
-            <a href="{% url 'item:detail' item.id %}">
-                <div>
-                    <img src="{{ item.images.url }}" alt="image" class="rounded-t-xl">
+        <div class="relative flex items-end justify-start w-full text-left bg-center bg-cover h-96 dark:bg-gray-500 opacity-1 rounded-xl" style="background-image: url('{{ item.images.url }}');">
+        <a class="" href="{% url 'item:detail' item.id %}">
+                <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
+                    <span rel="noopener noreferrer" href="#" class="rounded-2xl px-3 py-2 mb-32 text-xs font-semibold tracking-wider uppercase text-white bg-green-600 bgundefined">{{ item.destinations }}</span>
+                    <div class="flex flex-col justify-start text-center dark:text-gray-100">
+                        <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
+                        <span class="leading-none uppercase text-white">Jul</span>
+                        <span class="text-white text-2xl">-</span>
+                        <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
+                        <span class="leading-none uppercase text-white">Jul</span>
+                    </div>
                 </div>
-    
-                <div class="p-6 bg-white rounded-b-xl">
-                    <h1 class="text-2xl">{{ item.name }}</h1>
-                    <p class="text-gray-500">the Price is: {{ item.price }}€</p>
-                </div>
-            </a>
-        </div>
-        {% endfor %}
+                <h2 class="z-10 p-5">
+                    <h1 rel="noopener noreferrer" href="#" class="font-medium text-md hover:underline text-white bg-green-500">{{ item.name }}</h1>
+                </h2>
+        </a>
     </div>
+        {% endfor %}
+        </div>
     </div>
 {% endblock %}

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Item
 from django.db.models import Q
 from .forms import NewItemForm, EditItemForm
-from .models import Item, Category
+from .models import Item
 
 
 
@@ -26,7 +26,7 @@ def browse(request):
 
 def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
-    releated_items = Item.objects.filter().exclude(pk=pk)[0:3]
+    releated_items = Item.objects.filter().exclude(pk=pk)[0:15]
 
     return render(request, 'detail.html', {
         'item': item,

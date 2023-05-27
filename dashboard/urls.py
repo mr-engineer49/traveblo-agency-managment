@@ -6,5 +6,9 @@ app_name = 'dashboard'
 
 
 urlpatterns = [
-    path("", views.index, name="dashboard"),
+    path("dashboards/", views.dashboard, name="dashboard"),
+    path("insights/", views.insights, name="insights"),
+    path("inbox/", views.inbox, name="inbox"),
 ]
+#path("<int:pk>/delete/", views.delete, name="delete"),
+#path("<int:pk>/edit/", views.edit, name="edit"),
