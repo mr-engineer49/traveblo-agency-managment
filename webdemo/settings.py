@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('django-insecure-pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*','https://traveblo-online-ebea326cbacf.herokuapp.com/']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*','https://traveblo-online-ebea326cbacf.herokuapp.com/','127.0.0.1:3306']
 
 
 LOGIN_URL = '/login/'
