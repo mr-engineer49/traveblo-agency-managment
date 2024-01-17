@@ -1,1 +1,1 @@
-web: daphne webdemo.asgi:application
+web: gunicorn webdemo.wsgi:application
