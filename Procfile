@@ -1,1 +1,1 @@
-web: gunicorn webdemo.asgi
+web: gunicorn webdemo.asgi:application
