@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 
@@ -21,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7"
+SECRET_KEY = os.environ.get('django-insecure-pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7', 'pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*','https://traveblo-online-ebea326cbacf.herokuapp.com/']
 
 
 LOGIN_URL = '/login/'
