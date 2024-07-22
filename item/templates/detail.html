@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.name }}{% endblock %}
+
+{% block header %}
+<div class="container mx-auto px-4 pt-6 md:px-6 lg:px-12">
+  <div class="flex flex-wrap -mx-4">
+    <div class="w-full md:w-2/3 xl:w-2/3 p-4">
+      <div class="flex flex-col gap-4 md:flex-row md:items-center">
+        <img src="{{ item.images.url }}" alt="Product" class="rounded-lg w-full h-96 md:h-128 lg:h-160 object-cover">
+        <div>
+          <h1 class="text-3xl font-bold mb-4">{{ item.name }}</h1>
+          <p class="text-gray-600 mb-4">{{ item.description }}</p>
+          <div class="flex items-center mb-4">
+            <span class="text-gray-600 mr-2">Destination:</span>
+            <img src="https://img.icons8.com/3d-fluency/94/null/map-pin.png" alt="Address" class="w-6 h-6 inline-block">
+            <span class="text-gray-600">{{ item.destinations }}</span>
+          </div>
+          <div class="flex items-center mb-4">
+            <span class="text-gray-600 mr-2">Price:</span>
+            <span class="text-2xl font-bold">${{ item.price }}</span>
+          </div>
+          <div class="flex items-center mb-4">
+            <span class="text-gray-600 mr-2">Published on:</span>
+            <span class="text-gray-600">{{ item.published_at }}</span>
+          </div>
+          <div class="flex items-center mb-4">
+            <span class="text-gray-600 mr-2">Start Date:</span>
+            <span class="text-gray-600">{{ item.start_date }}</span>
+          </div>
+          <div class="flex items-center mb-4">
+            <span class="text-gray-600 mr-2">End Date:</span>
+            <span class="text-gray-600">{{ item.end_date }}</span>
+          </div>
+          {% if request.user == item.published_by %}
+          <div class="mt-10 p-5 bg-white rounded-b-xl">
+            <p>This is your item</p>
+            &emsp;
+            <div class="flex gap-5 inline-block inline">
+              <a href="{% url 'item:edit' item.id %}" class="btn bg-gray-500 text-white px-6 inline-block rounded-full">
+                <img width="22" height="22" src="https://img.icons8.com/office/22/edit.png" alt="edit"/>
+                Edit
+              </a>
+              <a href="{% url 'item:delete' item.id %}" class="btn bg-red-500 text-white px-6 inline-block rounded-full">
+                <img width="22" height="22" src="https://img.icons8.com/stickers/22/filled-trash.png" alt="filled-trash"/>
+                Delete
+              </a>
+            </div>
+          </div>
+          {% else %}
+          <button type="button" class="btn bg-blue-500 px-2 rounded-full text-white">Get This Now!</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="container mx-auto px-4 pt-8 md:px-6 lg:px-12">
+  <h2 class="text-2xl font-bold mb-4">Latest Offers!</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {% for item in releated_items %}
+    <div class="flex flex-col bg-white rounded-lg shadow-md overflow-hidden">
+      <a href="{% url 'item:detail' item.id %}">
+        <img src="{{ item.images.url }}" alt="Product" class="w-full h-48 object-cover">
+      </a>
+      <div class="flex flex-col p-4">
+        <a href="{% url 'item:detail' item.id %}" class="text-xl text-center font-bold text-green-800 hover:underline">{{ item.name }}</a>
+<div class="item-details">
+    <span class="left-side text-xl text-green-600">Place - {{ item.destinations }}</span> 
+    <span class="right-side text-xl text-green-600">Price - ${{ item.price }}</span>
+</div>
+      </a>
+      <style>
+        .item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-side {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.right-side {
+    text-align: right;
+}
+
+      </style>
+    </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

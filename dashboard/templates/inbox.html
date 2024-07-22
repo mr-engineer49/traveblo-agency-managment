@@ -1,0 +1,153 @@
+{% extends 'dashboard.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block body %}
+  <body>
+    <!-- Chat History Section -->
+    <div class="chat-history">
+      <h2 class="text-lg font-bold mb-4">Chat History</h2>
+      <div class="chat-bubble">
+        <div class="chat-bubble-header">
+          <span class="username">John Doe</span>
+          <span class="timestamp">10:45 AM</span>
+          <button class="chat-bubble-actions">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+        </div>
+        <div class="chat-bubble-content">
+          <p>Hello, how are you?</p>
+        </div>
+      </div>
+      <div class="chat-bubble">
+        <div class="chat-bubble-header">
+          <span class="username">Jane Doe</span>
+          <span class="timestamp">11:00 AM</span>
+          <button class="chat-bubble-actions">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+        </div>
+        <div class="chat-bubble-content">
+          <p>I'm good, thanks. How about you?</p>
+        </div>
+      </div>
+      <!-- More chat bubbles will be rendered here -->
+    </div>
+
+    <!-- Communication Section -->
+    <div class="communication">
+      <h2 class="text-lg font-bold mb-4">New Message</h2>
+      <div class="phone-input">
+        <input type="tel" id="phone-number" placeholder="Phone Number">
+        <select id="country-code">
+          <option value="+1">+1 (USA)</option>
+          <option value="+44">+44 (UK)</option>
+          <!-- More country codes will be added here -->
+        </select>
+      </div>
+      <div class="message-input">
+        <textarea id="message" placeholder="Type a message..."></textarea>
+      </div>
+      <button class="send-btn">Send</button>
+    </div>
+
+    <!-- Form Section -->
+    <div class="px-4 py-6">
+      <form class="" method="post" action=".">
+        {% csrf_token %}
+        <div class="grid grid-cols-4 space-x-6 mt-4 py-4 gap-4 flex flex-1">
+          {{ form.as_p }}
+        </div>
+      </form>
+    </div>
+  </body>
+  <style>
+    /* Chat History Section Styles */
+.chat-history {
+  padding: 1rem;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bubble {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.chat-bubble-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.timestamp {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.chat-bubble-actions {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.chat-bubble-actions:hover {
+  background-color: #f7f7f7;
+}
+
+.chat-bubble-content {
+  padding: 1rem;
+}
+
+/* Communication Section Styles */
+.communication {
+  padding: 1rem;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+
+#phone-number {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+#country-code {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.message-input {
+  padding: 1rem;
+}
+
+#message {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+  </style>
+{% endblock %}
+

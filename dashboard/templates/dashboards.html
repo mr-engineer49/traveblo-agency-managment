@@ -1,0 +1,36 @@
+{% extends 'dashboard.html' %}
+
+
+
+{% block title %}Dashboard{% endblock %}
+
+
+
+
+
+{% block body %}
+    <h2 class="mb-12 text-2xl text-center">My Listet Items</h2>
+    <div class="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
+        <div class="grid grid-cols-4 gap-6 md:grid-cols-6 lg:grid-cols-5 md:gap-6 lg:grid-rows-6">
+            {% for item in items %}
+            <div class="relative flex items-end justify-start w-full text-left bg-center bg-cover h-96 dark:bg-gray-500 opacity-1 rounded-xl" style="background-image: url('{{ item.images.url }}');">
+            <a class="" href="{% url 'item:detail' item.id %}">
+                    <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
+                        <span rel="noopener noreferrer" href="#" class="rounded-2xl px-3 py-2 mb-32 text-xs font-semibold tracking-wider uppercase text-white bg-green-600 bgundefined">{{ item.destinations }}</span>
+                        <div class="flex flex-col justify-start text-center dark:text-gray-100">
+                            <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
+                            <span class="leading-none uppercase text-white">Jul</span>
+                            <span class="text-white text-2xl">-</span>
+                            <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
+                            <span class="leading-none uppercase text-white">Jul</span>
+                        </div>
+                    </div>
+                    <h2 class="z-10 p-5">
+                        <h1 rel="noopener noreferrer" href="#" class="font-medium text-md hover:underline text-white bg-green-500">{{ item.name }}</h1>
+                    </h2>
+            </a>
+        </div>
+            {% endfor %}
+            </div>
+    </div>
+{% endblock %}

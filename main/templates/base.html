@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
+
+
+    <title>{% block title %}{% endblock %} | Traveblo</title>
+</head>
+<header>
+    text header news 
+</header>
+<body>
+    <nav class="flex p-5 justify-between items-center border-b border-gray-200">
+        <a href="/" class="text-xl font-semibold">Traveblo</a>
+
+        <div class="space-x-6">
+            <a href="{% url 'item:browse' %}" class="text-lg hover:text-gray-500"><img class="w-6 space-x-4 inline" alt="discover" src="data:image/png;base64,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">Discover</a>
+        
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'dashboard:dashboard' %}" class="px-4 py-2 text-lg bg-green-500 text-white-500 text-white rounded-xl hover:bg-teal-400">
+            <img class="w-6 space-x-4 inline" alt="profile" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFS0lEQVR4nN2Y+1NTRxTHM/2lnel/0Nr21z6mf0E74y9IHjcJUHyMddofdKy1M1VbbafVcWh99ebm5gXWx+ADRYivgg9Ep2MVVO69u0kEFAgQcAxGfIDBkJuQBJLTOdeCj/JIMMFOvzNnWHbP7n5mz83unlWp/s/SmIT5DC/tNlroLcZMhtUmMak3k5DR6hLyWeHzkhJ47dWAbZc+NPC0udjhCW+pCyQPusJwsj0O53xJ5W9Z4yB8sbc1rOeptMDc8uacwqlZotZzROb+vJeq96WgvmcK86VgnbN7xGil5+cS7iOEO0CHpwbreWpnfUkotrtjWpMYM1gpUf8m5OUUUM/TNv7ig1Q6cPXP2Mm2ODgaBqDQ5o7oeLohJ3D5rLhgSZknPG1Ye6a3EzdjYOBJRMsKH2cd0GihFdvOBTJavf0kBJXXI8/Vba27kzRaSWXWAQ0W0nfYI6cNV9UcgUVlHih2uMF+6eFE/ZHrEdDzpD/rgDpOitR0JNKCczQMwEKHGy62DYB/IApLdnqg7Mqg0namcwy0JjGedUANK47hr/JFmJqOBFR6ZNjTNAS/1t2BL/e2wqr9N8B7Nwzj6ronK8B/dCSg1psAHSeNZB1QZybDuAkjVLkUgq8r2qHQ5oLFZW5YUd4K66vaYc9ft+FGXwgmk/3CLdh82g+HPGEw8tSfdcACi6utXHoMe4UhWFz6JHwjiSSkq/bAMCwuawZH4yAUWOmlrAMyvOT45WxfctmeVrjS+QgyVSQ2BjqOwIZjvTENK2V/L1SbpG3LdrektJwE0fgYzEZqVoTP7O5UPpcDQIYjIYOFKpPMVmoEdLiB4Wgo+4BmMrS2uuelAX84cQtwrKwD6i20+vujvaMvC7jhaM+Ykc/BSaIzN72n50lQY5IgmUplDJdMpQD7MjwJ5m+l76hyoTxW/MDIk9GgnMgYMCgnAPvmb296X5VLLbS7RKE7mDFgU9cjWGR3NalyLS0rrvzJ2fH0HEtTP1a3yxpWWJFzwPkll98otJD7tHcoXTaQeoJQYKH3NI7611VzIQ0rflpkJZGu/pkXEi8NhVYiL9gufKKaS+lYiSmwEDgqBiY9k7HOKQQAfbSsqFW9CqlZEXac7oZimwvs53vhYSiuGJaxjj3jU/a+VwI3DogKRUdhf4Mflu50K4ZlrEPNKWAee/VdNSuu0fP0AWMmSZwcV2wqYRv6oC/20XDCtznZpDWsNA+POsZMouuqfZHVh72wsdYPW+oCyoW1xf/vSyrWYdvWugBsrPHD6kNeWOvsjuAYjJlWMduEt7MDxwlFmI9sPuVP1HpHlRv1rmtBWL6v/Z/b9WMoLnXDgYY+GD8Aj0v9mLAraQD6oC/2wTJe+Ted8sd1nCSrTaLxpeAYE1lfZHPJFa7w8y8GXWOAV6/aCeAhJZRFNqoYln+fABpVfLHPs2McpMNQaKOyzix9N+uVK7BR+diNkUkzt68qvFDaMAjVLVFYebBDgUAwNIOVwvJ9bXCkOaL4rKrwTjrG8ZsxzGtkHScVZAbHSvMwrJitTZVa7rjQD0t3teBzhlLGUI8DlouPlTpsQx8sTzXOIbcMDCfJeaZrb6UNqOeJc1OtPzZd7osr983hLmUV8H98QRgHxOR8fIXQB32nG+vnmttxg5VWpb2VMByJnep88n2layVn+iYAsZxJ39Odo4BzYuRmBMR9bp2zO5Lpw9DSXS0TgFjOtP+aal8E98kZAfH5trTxyTNFulb5THhfDHO6hvmy0UqvpvH90fvO1pFZh1c9yzDjd6rn6d0ZATWsFH1xsrkyDStFZwT8r+lvfbz5reXTb5MAAAAASUVORK5CYII=">
+            Profile</a> 
+        <a href="{% url 'main:logout' %}" class="px-2 py-2 text-lg bg-red-500 text-white-500 text-white rounded-xl hover:bg-red-100">
+            <img class="w-6 space-x-4 inline" alt="logout" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3Wu06VQRQF4AONJkJD5Z0oJvguhthoFHgCwILLSSx4AGgILdobjbfCEC+PwAugvaGjwEtCuPmZSfZJfkzM+Wd+CRrPSqabvdaaPXv27Farhx4ygGt4iA/Ywi6+4yPeYgaXT0L4Kp7iUHcc4DEu/inxiThlh/wN7mIYZ3AOoxjHM+zF3q8Yayq+UDnZO1ypEXMdLyPmCA9Kxe8HyQ/Moq/A/GGYyM8EbmMbi9nBx00kfMGFEoKhUvEKx6sw8aiUYK6JEYxEYaYCvpQbvBruN9DfwMTz4JkuET/AnVLx4JoMrvW6AcsRkKp4vIl48KU+kfCpzuYVDfAbzsFOc/r7DSRgqXIFE62GwM3g2/w3ivAEn+HUaTSiG00a0VCpcIXjdZx+7TQ+o3aI7+B8bvC9+IrTmi/4jtuV7/hWrvnq/XfwPo1mrXp33kl7Ep/pFlNnMPlW6QvrkZ00oJ7FQLzz9NReYL+S9rKT/4o0iuFJVHI3pD1r2XeeMR23Yz78HGN5ys5mZGYq+6n18N/jJ7XXVChgtrk7AAAAAElFTkSuQmCC">
+            Logout</a>
+        {% else %}   
+            <a href="{% url 'main:signup' %}" class="px-4 py-1 text-lg font-semibold bg-green-500 text-white-500 text-white rounded-xl hover:bg-teal-700"><img class="w-6 space-x-4 inline" alt="account" src="data:image/png;base64,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">Sign In/Up</a>
+        {% endif%}
+    </div>
+    </nav>
+    <div class="px-6 py-6">
+        {% block header %}
+        {% endblock %}
+    </div>
+
+</body>
+
+<footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:flex lg:justify-between lg:gap-8">
+        <!-- Company Info -->
+        <div class="mb-8 lg:mb-0 lg:w-1/4">
+          <h2 class="text-2xl font-bold mb-4">TravelWithUs</h2>
+          <p class="text-lg">Your trusted travel partner for exploring the world. Experience the best tours, activities, and vacation packages.</p>
+          <button class="btn btn-primary mt-4">Learn More</button>
+        </div>
+        <!-- Quick Links -->
+        <div class="mb-8 lg:mb-0 lg:w-1/4">
+          <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+          <ul class="list-none mb-0">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">Destinations</a></li>
+            <li><a href="#" class="hover:underline">Tours</a></li>
+            <li><a href="#" class="hover:underline">Contact Us</a></li>
+            <li><a href="#" class="hover:underline">About Us</a></li>
+          </ul>
+        </div>
+        <!-- Social Media -->
+        <div class="mb-8 lg:mb-0 lg:w-1/4">
+          <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-gray-400">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <!-- Facebook icon -->
+              </svg>
+            </a>
+            <a href="#" class="hover:text-gray-400">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <!-- Twitter icon -->
+              </svg>
+            </a>
+            <a href="#" class="hover:text-gray-400">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <!-- Instagram icon -->
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Newsletter -->
+        <div class="mb-8 lg:mb-0 lg:w-1/4">
+          <h3 class="text-xl font-semibold mb-4">Stay Updated</h3>
+          <form>
+            <input type="email" class="input w-full mb-2" placeholder="Enter your email address">
+            <button class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</html>
