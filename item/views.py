@@ -54,7 +54,10 @@ def new(request):
     })
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 @login_required
 def edit(request, pk):
     item = get_object_or_404(Item, pk=pk, published_by=request.user)

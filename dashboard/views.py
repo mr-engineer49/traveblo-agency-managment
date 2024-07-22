@@ -10,6 +10,15 @@ from django.http import HttpResponse
 
 from item.models import Item
 
+<<<<<<< HEAD
+=======
+from conversation.models import Conversation
+
+from conversation.forms import ConversationMessagesForm
+
+
+
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 
 
 
@@ -39,3 +48,48 @@ def inbox(request):
 
     return render(request, 'inbox.html')
 
+<<<<<<< HEAD
+=======
+
+
+
+def new_conversation(request, item_pk):
+    item = get_object_or_404(Item, pk=item_pk)
+
+    if item.published_by == request.user:
+        return redirect('dashboard:dashboard')
+    
+    conversation = Conversation.objects.filter(item=item).filter(members__in=[request.user.id])
+
+    if conversation:
+        pass #redirect to conversions
+
+    if request.method == 'POST':
+        form = ConversationMessagesForm(request.POST)
+
+        if form.is_valid():
+            conversation = Conversation.objects.create(item=item)
+            conversation.members.add(request.user)
+            conversation.members.add(item.created_by)
+            conversation.save()
+
+
+            conversation_message = form.save(commit=False)
+            conversation_message.conversation = conversation
+            conversation_message.published_by = request.user
+            conversation_message.save()
+
+            return redirect('item:detail', pk=item_pk)
+        else:
+            form = ConversationMessagesForm()
+
+
+        return render(request, 'newsms.html', {
+            'conversation': conversation,
+            'form': form,
+        })
+    
+
+
+    return HttpResponse()
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038

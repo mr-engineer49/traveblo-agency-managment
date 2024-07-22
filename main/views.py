@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
 from item.models import Item 
 from .forms import SignupForm, LoginForm
 from django.contrib.sessions.models import Session
@@ -79,6 +80,25 @@ def home(request):
     return render(request, 'index.html', context)
 
 # Other view functions remain unchanged
+=======
+
+from item.models import Item 
+
+from .forms import SignupForm, LoginForm
+
+from django.contrib.sessions.models import Session
+
+
+
+# Create your views here.
+def home(request):
+    items = Item.objects.filter(is_active=True)[0:6]
+
+    return render(request,  'index.html', {
+        'items': items,
+        })
+
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 
 def places(request):
     places = Item.objects.filter(places=True)[0:6]
@@ -148,4 +168,8 @@ def logout(request):
     logout = Session.objects.all().delete()
     return render(request, 'index.html', {
         'logout': logout,
+<<<<<<< HEAD
     })
+=======
+    })
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038

@@ -10,8 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+<<<<<<< HEAD
 from pathlib import Path
 
+=======
+import os
+from pathlib import Path
+
+
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +27,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = "django-insecure-pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+=======
+SECRET_KEY = os.environ.get('django-insecure-pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7', 'pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*','https://traveblo-online-ebea326cbacf.herokuapp.com/','127.0.0.1:3306']
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 
 
 LOGIN_URL = '/login/'
@@ -39,8 +55,13 @@ INSTALLED_APPS = [
     "main",
     "item",
     "dashboard",
+<<<<<<< HEAD
     "daphne",
     "channels",
+=======
+    "conversation",
+    "daphne",
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -51,6 +72,10 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+<<<<<<< HEAD
+=======
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -77,23 +102,50 @@ TEMPLATES = [
     },
 ]
 
+<<<<<<< HEAD
 ASGI_APPLICATION = 'webdemo.asgi.application'
 
+=======
+WSGI_APPLICATION = "webdemo.wsgi.application"
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+<<<<<<< HEAD
 
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+=======
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "traveblo",
+        "USER": "root",
+        "PASSWORD": "",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
+
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
     }
 }
 
 
+<<<<<<< HEAD
+=======
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -132,6 +184,12 @@ STATIC_URL = "static/"
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
+<<<<<<< HEAD
+=======
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 
 
 

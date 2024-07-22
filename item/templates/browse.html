@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+<<<<<<< HEAD
 {% block title %}Browse{% endblock %}
 
 {% block header %}
@@ -39,3 +40,46 @@
   </div>
 </section>
 {% endblock %}
+=======
+
+{% block title %}Browse{% endblock%}
+
+
+{%block header %}
+<div class="pb-6 grid-cols-4 gap-3">
+    <div class="col-span-1">
+        <form method="get" action="{% url 'item:browse' %}">
+            <input name="query" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Find places, vacantions offers">
+            <button class="mt-4 py-4 px-6 text-xl bg-green-500 text-black rounded-xl"><img class="w-6 space-x-6 inline" alt="search" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADLUlEQVR4nO2YWU8TURiG505N0DuTarkwBlxiIhLxn4hL4o3GiPuOMWo0uJJGiQtKaYHSVqORH6DxpuFCIdUQ4pK4QJu2YKWgFBi00xYec1oX3BJxzsxI0jc5N3P1PGfO9n2KUkghhfxT/DDPDxu9E7hbswRbsyQ8WdKeDOmWDImmDMHmDK5GjQ1NMFf5X+KFJT5o9k0w7p2E1on88IiRhZYsNGfyw50GlwaNKcadKZoaUpRaBn4X5vjgohcyvkn4a3gNnCm48QnqP5K+No7DA7NNhb8FpX545gP+Ff56XoCr43B5jI46lQWmwHuh3A8JWfBXVLiswqVRYo4xVpox89Lh68ZyAlwcIeZQsRkCL9apH7oNhMcxArVJnlyKMke6gNiwJsBz4QOcfU+N9KNSz2kzHfhz7+HMEGOnBiQupdw5bx48NYNwKsENaTfstC4pOfCcHECtHpRwY+eeB+bDc+IdHI+zXrdA7m1jAfyxOBx9S6NugdzDzBp4qvvp0C3gyTJoBfyRfjgcY0C3QEsWzRL4PjgUI6VfIINmETwHonIEBi2CZ29EwhL6UkmZDr8vArtDEjaxKAOtgN8Thl29OHULiBrWEvgQ7AhRqVugHoqcKVSz4bf3oO58TpEiI6IAN3Xme2FbDy5FVkT3QBTgZsFX9aBtfsViRWZE98AkeLa+4YJiREkpugdGw68NDqdX+LrKFCNSr2KrGyVqFPymZ59Y6n3MsraX8fIHQ8sNkRCtj1z3QDb804+suNnF0jsvWHU/TkV7sq88kCwxROLcKPNrk7TLgq8MDmul3mAe/t5b1rSP5MbqQPJRsTtqjMQVmCW6B6eHUPWcNltfc37l7e4ly9tehsXMf4WvCCRDdk/s3QJXNG5zh41ZTiKieyAKcFHDTueSquqhcepRWRaIL6poHwn/AO+OkhtGS3wRKRI17NF+nEf66RTFyMEY2v4omnhV7g7TubOXhqoQ6/50w5YHkiWrA8mHxZ6+7/BmSsiIvSFWanNH+n4RKEiYHHvhT8yAP2FzR14pMyH230m4IpM2V2S7MlNinyox0+B/kni9sCm65dvHQgopRJmaz39BUHt8KVcUAAAAAElFTkSuQmCC">Search</button>
+        </form>
+
+        </ul>
+
+    </div>
+
+
+    <div class="col-span-8">
+        <div class="grid grid-cols-4 gap-6 md:grid-cols-6 lg:grid-cols-5 md:gap-6 lg:grid-rows-6">
+            {% for item in items %}
+            <div class="relative flex items-end justify-start w-full text-left bg-center bg-cover h-96 dark:bg-gray-500 opacity-1 rounded-xl" style="background-image: url('{{ item.images.url }}');">
+                <a class="" href="{% url 'item:detail' item.id %}">
+                        <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
+                            <span rel="noopener noreferrer" href="#" class="rounded-2xl px-3 py-2 mb-32 text-xs font-semibold tracking-wider uppercase text-white bg-green-600 bgundefined">{{ item.destinations }}</span>
+                            <div class="flex flex-col justify-start text-center dark:text-gray-100">
+                                <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
+                                <span class="leading-none uppercase text-white">Jul</span>
+                                <span class="text-white text-2xl">-</span>
+                                <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
+                                <span class="leading-none uppercase text-white">Jul</span>
+                            </div>
+                        </div>
+                        <h2 class="z-10 p-5">
+                            <h1 rel="noopener noreferrer" href="#" class="font-medium text-md hover:underline text-white bg-green-500">{{ item.name }}</h1>
+                        </h2>
+                </a>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038

@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/4.1/howto/deployment/asgi/
 """
 
 import os
+<<<<<<< HEAD
 from django.core.asgi import get_asgi_application
 
 
@@ -15,3 +16,11 @@ from django.core.asgi import get_asgi_application
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webdemo.settings")
 
 application = get_asgi_application()
+=======
+
+from django.core.asgi import get_asgi_application
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webdemo.settings")
+
+application = get_asgi_application()
+>>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
