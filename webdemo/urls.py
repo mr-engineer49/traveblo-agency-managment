@@ -17,31 +17,19 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
-<<<<<<< HEAD
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-
-=======
-
+from django.urls import include, path
 
 from main.views import home
-
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
-
 
 urlpatterns = [
     path('', include('main.urls')),
     path('items/', include('item.urls')),
     path('dashboard/', include('dashboard.urls')),
-<<<<<<< HEAD
     path("admin/", admin.site.urls),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 urlpatterns += staticfiles_urlpatterns()
-=======
-    path('conversation/', include('conversation.urls')),
-    path("admin/", admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
+path('conversation/', include('conversation.urls')),
+path("admin/", admin.site.urls),+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,47 +6,34 @@ from django.db import models
 class City(models.Model):
     city = models.CharField(max_length=255)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
     def __str__(self):
         return self.city
 
 
-<<<<<<< HEAD
 
 
 class Location(models.Model):
     address = models.CharField(max_length=255)
     city = models.ForeignKey(City, max_length=255, on_delete=models.CASCADE)
-=======
 class Location(models.Model):
     address = models.CharField(max_length=255)
     city = models.CharField(City, max_length=255)
 
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 
     def __str__(self):
         return self.address
     
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
 
     class Meta:
         verbose_name_plural = "Categories"
-<<<<<<< HEAD
-=======
 
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
     
     def __str__(self):
         return self.name
@@ -76,13 +63,10 @@ class Item(models.Model):
     vacations = models.BooleanField(default=False)
     activities = models.BooleanField(default=False)
     trip = models.BooleanField(default=False)
-<<<<<<< HEAD
     start_date = models.DateField(default=False)
     end_date = models.DateField(default=False)
-=======
 
 
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 
 
     def __str__(self):
