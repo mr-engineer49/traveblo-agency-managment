@@ -10,15 +10,12 @@ from django.http import HttpResponse
 
 from item.models import Item
 
-<<<<<<< HEAD
-=======
 from conversation.models import Conversation
 
 from conversation.forms import ConversationMessagesForm
 
 
 
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 
 
 
@@ -48,8 +45,6 @@ def inbox(request):
 
     return render(request, 'inbox.html')
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -92,4 +87,3 @@ def new_conversation(request, item_pk):
 
 
     return HttpResponse()
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038

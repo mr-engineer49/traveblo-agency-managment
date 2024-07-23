@@ -29,7 +29,3 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-urlpatterns += staticfiles_urlpatterns()
-path('conversation/', include('conversation.urls')),
-path("admin/", admin.site.urls),+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

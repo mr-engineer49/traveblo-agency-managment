@@ -21,18 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
 
 SECRET_KEY = os.environ.get('django-insecure-pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7', 'pmbrs5ob$fmxu0jm%dyx1drxu2_fk*9#9y%pa-!(cu*@@ck$b7')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*','https://traveblo-online-ebea326cbacf.herokuapp.com/','127.0.0.1:3306']
 # >>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
@@ -98,11 +93,11 @@ WSGI_APPLICATION = "webdemo.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "traveblo",
+        "NAME": "traveblo_db",
         "USER": "root",
         "PASSWORD": "",
         "HOST": "127.0.0.1",
-        "PORT": "3306",
+        "PORT": "8080",
 
     }
 }

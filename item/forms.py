@@ -1,13 +1,9 @@
 from django import forms
-from .models import  Item
-from django.forms.widgets import CheckboxInput, DateInput
-from django.forms.widgets import DateInput
-from django.utils.safestring import mark_safe
 from django.forms.utils import flatatt
-from django.forms.widgets import CheckboxInput
+from django.forms.widgets import CheckboxInput, DateInput
+from django.utils.safestring import mark_safe
 
-
-
+from .models import Item
 
 INPUT_CLASSES = "py-4 px-8 rounded-2xl border"
 INPUT_CLASSES_1 = "w-32 py-4 px-8 rounded-2xl border flex inline-block"
