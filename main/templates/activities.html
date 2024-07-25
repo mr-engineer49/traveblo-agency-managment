@@ -3,7 +3,6 @@
 {% block title %} Activities {% endblock %}
 
 {% block content %}
-<<<<<<< HEAD
 <div class="max-w-screen-xl p-5 mx-auto dark:text-gray-100">
     <h1 class="text-2xl text-center px-4 py-6 underline text-green-500">Explore Activities Offers!</h1>
 	<div class="grid grid-cols-4 gap-6 md:grid-cols-6 lg:grid-cols-5 md:gap-6 lg:grid-rows-6">
@@ -44,35 +43,5 @@
 		{% endif %}
 	  {% endfor %}
     </div>
-</div>
-=======
-<div class="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
-    <h1 class="text-2xl text-center px-4 py-6 underline text-green-500">Activities Offers!</h1>
-	<div class="grid grid-cols-4 gap-6 md:grid-cols-6 lg:grid-cols-5 md:gap-6 lg:grid-rows-6">
-    {% for item in items %}
-	<div class="relative flex items-end justify-start w-full text-left bg-center bg-cover h-96 dark:bg-gray-500 opacity-1 rounded-xl" style="background-image: url('{{ item.images.url }}');">
-    <a class="" href="{% url 'item:detail' item.id %}">
-			<div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
-				<span rel="noopener noreferrer" href="#" class="rounded-2xl px-4 py-0 mb-32 uppercase text-xs bg-white text-green-500 font-medium">
-					<img class="w-6 space-x-4 inline" alt="destinations" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADT0lEQVR4nO2X3UsUURjGX4uCUrspqIuCNAW7CAqhIs/sWJa3WUT/QEnSdWaIsEFBUOiMVkJQF3UhhTflBxVIfmzknlmFJLsI6aI7Q8ywcs8R841zdlFbd2Z2Z7ezS8wDDwyz877n+c2ec2YGwJcvX77+G6EOO5BAPRJ4gRp8QgI/pWPH4txFrIHtkG/CU1CIGlxHAj9QA3TxPBIIYiVshXwQarAHCYynEDzRE6hBSW7DEyhFDb56CB8zgemcQeAxKEYNPnoOvwrxAXUoUg9A4FbG4bUViBtqw+uwCzVYcAj0HAnocnELV0E1atDjAPELj8BOdQAELjuEb3Koa3aAaFAHoMFLuzufQm2vTW2/mvSxEJ9tQuiutQE4blM7pRIg+fxPYTeJ715J1wGoEhKY8wxwGLbZAMyq/AdCSUNUQXUKtSdsAEJq0sdCtNiE6HGtJdBnU9ui8jmwGwks2SzG5rTBCSyJnsoAZJjY67Hdnt4rdxsdiqTFtLG/8yh6KQ0vATSozdqrhAa1ygHiEINZCB/KSXgJUAUkYwDi/vD7txBOc9s9fF9Ow0uAAJQjAeYBgKMOFZAPQg1u5v03gJPwKGyxfcFL7i/iOwFyqeAkbm4PL1YalNebFm991floeDlQ4BpeXPO68+GQqDEorxc9RC8loY1Rtt+grMmgLGRQtmhaHNd6oumSK8DEtYa/akyLY6wXGzHD7KoYI6uhg4gb2iLsnAidOHCi772dw7kzZbbhv9eV4P3QrGMPU5qNGBY7i4gFGYVvH4vuMy027D7gqp91D+NyYOP6qaNvwO6nAyn3MYUpH2yzoqWewneEoyWGxafTGjDuSPDKOoBIsDHtPqaEYDOt49GytAHknPQyoMXx7rt5nDl/YCW8OBbnvPYzKBvyArDgdUDhx/2TyE8W42JNIT7pfe+5jxlbEwtpAwjqzAblYruUzrSPYfE36QOMRvd6XQNZNWUzYjNJG2ANxEDuANiIOcrKIROJvdgIs7psTKmUpwxlQ+0Rdjrj50CiOsZYhWGxRglDGc9iYCb2fNFbjAEq9GAMN7Vb/JAZ5hcMyu+YlHXJpzXlU2LtGBb7ZlL2W1gcy/UkfpPXsC6T8tvx2oOil5LQvnz58gXZ1h8JC/UEAA50vAAAAABJRU5ErkJggg==">
-					{{ item.destinations }}</span>
-				<div class="flex flex-col justify-start text-center dark:text-gray-100">
-					<span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
-					<span class="leading-none uppercase text-white">Jul</span>
-                    <span class="text-white text-2xl">-</span>
-                    <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
-					<span class="leading-none uppercase text-white">Jul</span>
-				</div>
-			</div>
-			<h2 class="text-center bg-white text-green-500 w-15 rounded-3xl">{{ item.price }}$</h2>
-			<h2 class="z-10 p-5">
-				<h1 rel="noopener noreferrer" href="#" class="text-center font-medium text-md hover:underline text-white bg-green-400 rounded-lg">{{ item.name }} | {{ item.published_by }}</h1>
-			</h2>
-    </a>
-</div>
-    {% endfor %}
-    </div>
-</div>
-
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
+</div>s
 {% endblock %}

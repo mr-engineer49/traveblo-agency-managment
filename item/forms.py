@@ -25,12 +25,6 @@ class ParkingBooleanWidget(CheckboxInput):
     input_type = 'checkbox'
 
 
-
-
-class EditItemForm(forms.ModelForm):
-    class Meta:
-        model = Item
-        fields = ('name', 'description', 'price', 'persons', 'bedrooms', 'bathrooms', 'destinations', 'food', 'parking', 'places', 'restaurants', 'vacations', 'activities', 'trip', 'start_date', 'end_date', 'images')
 class EditItemForm(forms.ModelForm):
     class Meta:
         model = Item
@@ -80,7 +74,6 @@ class EditItemForm(forms.ModelForm):
                 'multiple': False,              # Allow multiple file selection (if desired)
                 'class': IMAGE_CLASS
             }),
-            'images': forms.FileInput(attrs={})
         }
 
 
@@ -105,15 +98,10 @@ class ParkingBooleanWidget(CheckboxInput):
 
 
 
-
 class NewItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ('name', 'description', 'price', 'persons', 'bedrooms', 'bathrooms', 'destinations', 'food', 'parking', 'places', 'restaurants', 'vacations', 'activities', 'trip', 'start_date', 'end_date', 'images')
-class NewItemForm(forms.ModelForm):
-    class Meta:
-        model = Item
-        fields = ('name', 'description', 'price', 'images', 'destinations', 'pool', 'food', 'parking', 'bedrooms', 'bathrooms', 'persons', 'places', 'restaurants', 'vacations', 'activities', 'trip')
+        fields = ('name', 'description', 'price', 'images', 'destinations', 'start_date', 'end_date', 'pool', 'food', 'parking', 'bedrooms', 'bathrooms', 'persons', 'places', 'restaurants', 'vacations', 'activities', 'trip')
         widgets = {
             'name': forms.TextInput(attrs={
             'class': INPUT_CLASSES
@@ -155,9 +143,7 @@ class NewItemForm(forms.ModelForm):
             'destinations': forms.TextInput(attrs={
             'class': INPUT_CLASSES
             }),
-            'images': forms.FileInput(attrs={
-                'multiple': False,              # Allow multiple file selection (if desired)
+            'images': forms.FileInput(attrs={          # Allow multiple file selection (if desired)
                 'class': IMAGE_CLASS
             }),
-            'images': forms.FileInput(attrs={})
         }

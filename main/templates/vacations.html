@@ -3,49 +3,6 @@
 {% block title %} Vacations {% endblock %}
 
 {% block content %}
-<<<<<<< HEAD
-<div class="max-w-screen-xl p-5 mx-auto dark:text-gray-100">
-    <h1 class="text-2xl text-center px-4 py-6 underline text-green-500">Explore Vacations Offers!</h1>
-	<div class="grid grid-cols-4 gap-6 md:grid-cols-6 lg:grid-cols-5 md:gap-6 lg:grid-rows-6">
-		<!-- Items will be dynamically generated here -->
-		{% for item in vacations %}
-		{% if item.vacations == True %}
-		<div class="max-w-sm mb-4 overflow-hidden rounded-lg shadow-md dark:bg-gray-800">
-		  <a href="{% url 'item:detail' item.id %}">
-			<img src="{{ item.images.url }}" alt="item" class="w-full h-48 object-cover rounded-t-lg">
-			<div class="px-4 py-2">
-			  <div class="flex justify-between mb-2">
-				<h5 class="text-lg font-bold dark:text-white">{{ item.name }} | {{ item.published_by }}</h5>
-				{% if item.is_new %}
-				  <span class="bg-orange-500 text-white font-bold py-1 px-2 rounded-full text-xs">New</span>
-				{% endif %}
-				{% if item.is_hot %}
-				  <span class="bg-red-500 text-white font-bold py-1 px-2 rounded-full text-xs">Hot</span>
-				{% endif %}
-			  </div>
-			  <p class="text-gray-600 dark:text-gray-400">{{ item.destinations }}</p>
-			  <div class="flex justify-between mb-2">
-				<span class="text-gray-600 dark:text-gray-400">Start - {{ item.start_date }}</span>
-				<span class="text-gray-600 dark:text-gray-400">End - {{ item.end_date }}</span>
-			  </div>
-			  <div class="flex justify-between mb-2">
-				<span class="text-lg font-bold dark:text-white">{{ item.price }}$</span>
-				<button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
-				  Book Now
-				</button>
-			  </div>
-			  <div class="flex justify-between mb-2">
-				<span class="text-gray-600 dark:text-gray-400">Rating: {{ item.rating }}%</span>
-				<span class="text-gray-600 dark:text-gray-400">Reviews: {{ item.reviews_count }}</span>
-			  </div>
-			</div>
-		  </a>
-		</div>
-		{% endif %}
-	  {% endfor %}
-    </div>
-</div>
-=======
 <div class="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
     <h1 class="text-2xl text-center px-4 py-6 underline text-green-500">Vacations Offers!</h1>
 	<div class="grid grid-cols-4 gap-6 md:grid-cols-6 lg:grid-cols-5 md:gap-6 lg:grid-rows-6">
@@ -74,5 +31,4 @@
     </div>
 </div>
 
->>>>>>> 4fdda5b4a658ec79584c478eb3ae25454cf1a038
 {% endblock %}

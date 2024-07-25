@@ -46,7 +46,7 @@ class Item(models.Model):
     destinations = models.CharField(blank=True, null=True, max_length=100)
     description = models.TextField(blank=True, null=True)
     price = models.FloatField()
-    images = models.ImageField(upload_to='item_images', blank=True, null=True)
+    images = models.ImageField(upload_to="images/", blank=True, null=True)
     is_active = models.BooleanField(default=True)
     published_by = models.ForeignKey(User, related_name='items_author', on_delete=models.CASCADE)
     published_at = models.DateTimeField(auto_now_add=True)
