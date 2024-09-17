@@ -1,36 +1,38 @@
 {% extends 'dashboard.html' %}
 
-
-
 {% block title %}Dashboard{% endblock %}
 
-
-
-
-
 {% block body %}
-    <h2 class="mb-12 text-2xl text-center">My Listet Items</h2>
-    <div class="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
-        <div class="grid grid-cols-4 gap-6 md:grid-cols-6 lg:grid-cols-5 md:gap-6 lg:grid-rows-6">
-            {% for item in items %}
-            <div class="relative flex items-end justify-start w-full text-left bg-center bg-cover h-96 dark:bg-gray-500 opacity-1 rounded-xl" style="background-image: url('{{ item.images.url }}');">
-            <a class="" href="{% url 'item:detail' item.id %}">
-                    <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
-                        <span rel="noopener noreferrer" href="#" class="rounded-2xl px-3 py-2 mb-32 text-xs font-semibold tracking-wider uppercase text-white bg-green-600 bgundefined">{{ item.destinations }}</span>
-                        <div class="flex flex-col justify-start text-center dark:text-gray-100">
-                            <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
-                            <span class="leading-none uppercase text-white">Jul</span>
-                            <span class="text-white text-2xl">-</span>
-                            <span class="text-3xl font-semibold leading-none tracking-wide text-white">28</span>
-                            <span class="leading-none uppercase text-white">Jul</span>
-                        </div>
-                    </div>
-                    <h2 class="z-10 p-5">
-                        <h1 rel="noopener noreferrer" href="#" class="font-medium text-md hover:underline text-white bg-green-500">{{ item.name }}</h1>
-                    </h2>
-            </a>
-        </div>
-            {% endfor %}
+  <h2 class="mb-12 text-2xl text-center">My Listed Items</h2>
+  <div class="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for item in items %}
+      <div class="bg-white rounded-xl shadow-md p-4">
+        <a href="{% url 'item:detail' item.id %}">
+          <div class="flex justify-center mb-4">
+            <img src="{{ item.images.url }}" alt="item" class="w-full h-48 object-cover rounded-t-lg">
+          </div>
+          <div class="px-4">
+            <h2 class="text-lg font-bold mb-2">{{ item.name }}</h2>
+            <p class="text-gray-700 text-sm">{{ item.destinations }}</p>
+            <div class="flex justify-between mt-2">
+              <span class="text-lg font-bold text-green-500">{{ item.start_date }} - {{ item.end_date }}</span>
+              <button class="py-2 px-4 text-lg bg-green-500 text-white rounded-md hover:bg-green-700">View Details</button>
             </div>
+            <div class="flex justify-between mt-4">
+              <span class="text-lg font-bold text-gray-700">Price: ${{ item.price }}</span>
+              <span class="text-lg font-bold text-gray-700">Rating: {{ item.rating }} / 5</span>
+            </div>
+          </div>
+          <div class="px-4 pt-4">
+            <p class="text-gray-700 text-sm truncate">{{ item.description|truncatechars:100 }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
     </div>
+    <div class="flex justify-center mt-6">
+      <button class="py-2 px-4 text-lg bg-blue-500 text-white rounded-md hover:bg-blue-700">Load More</button>
+    </div>
+  </div>
 {% endblock %}

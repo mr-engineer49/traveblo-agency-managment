@@ -20,12 +20,26 @@
             </div>
             <div class="ml-2 w-full flex-1">
               <div>
-                <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
-                <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                <div class="mt-3 text-3xl font-bold leading-8">0</div>
+                <div class="mt-1 text-base text-gray-600">Offers Sales</div>
               </div>
             </div>
           </a>
           <!-- Repeat the above code for the other two insights -->
+          <a href="#" class="bg-white hover:bg-gray-100 transition duration-300 shadow-md rounded-lg p-4">
+            <div class="flex justify-between">
+              <img width="32" height="32" src="https://img.icons8.com/color/32/new-product--v1.png" alt="new-product--v1"/>
+              <div class="bg-gray-500 rounded-full h-6 px-2 flex justify-items-center text-white font-semibold text-sm">
+                <span class="flex items-center">0.001%</span>
+              </div>
+            </div>
+            <div class="ml-2 w-full flex-1">
+              <div>
+                <div class="mt-3 text-3xl font-bold leading-8">{{ posts_count }}</div>
+                <div class="mt-1 text-base text-gray-600">Offers Created</div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
       <div class="bg-white shadow-md p-4 rounded-lg">
@@ -60,5 +74,46 @@
         </div>
       </div>
     </main>
+
+    <div className="overflow-x-auto">
+      <link rel="stylesheet" href="https://cdn.flowbite.com/1.5.3/css/flowbite.min.css" />
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th scope="col" class="py-3 px-6">Post Name</th>
+      <th scope="col" class="py-3 px-6">Image</th>
+      <th scope="col" class="py-3 px-6">Location</th>
+      <th scope="col" class="py-3 px-6">Start Date</th>
+      <th scope="col" class="py-3 px-6">End Date</th>
+      <th scope="col" class="py-3 px-6">Price</th>
+      <th scope="col" class="py-3 px-6">
+        <span class="sr-only">Edit</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <td class="py-4 px-6">{{ item.name }}</td>
+      {% if item.images %}
+      <td class="py-4 px-6"><img width="100" height="100" src="{{ item.images.url }}"/></td>
+      {% else %}
+      <td class="py-4 px-6">N/A</td>
+      {% endif %}
+      <td class="py-4 px-6">{{ item.destinations }}</td>
+      <td class="py-4 px-6">{{ item.start_date }}</td>
+      <td class="py-4 px-6">{{ item.end_date }}</td>
+      <td class="py-4 px-6">${{ item.price }}</td>
+      <td class="py-4 px-6">
+        <a href="{% url 'item:detail' item.id %}" class="text-blue-600 hover:text-blue-900 dark:text-blue-500 dark:hover:text-blue-700">
+          Edit
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+
   </div>
 {% endblock %}
